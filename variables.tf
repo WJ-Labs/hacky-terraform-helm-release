@@ -11,7 +11,7 @@ variable "repository" {
 
 variable "chart" {
   type        = string
-  description = " Chart name to be installed. The chart name can be local path, a URL to a chart, or the name of the chart if repository is specified."
+  description = "Chart name to be installed. The chart name can be local path, a URL to a chart, or the name of the chart if repository is specified."
 }
 
 variable "chart_version" {
@@ -21,15 +21,18 @@ variable "chart_version" {
 }
 
 variable "namespace" {
+  type = string 
   description = "The namespace to install the release into. Defaults to default."
   default     = null
 }
 
 variable "create_namespace" {
+  type = bool
   description = "Create the namespace if it does not yet exist."
   default     = true
 }
 
 variable "values" {
-  description = "List of values in raw yaml to pass to helm."
+  type = list(string)
+  description = "List of values in raw yaml to pass to helm. Values will be merged, in order."
 }
