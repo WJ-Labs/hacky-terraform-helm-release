@@ -5,5 +5,5 @@ output "release_name" {
 
 output "release_version" {
   value       = helm_release.this.metadata.0.version
-  description = "A SemVer 2 conformant version string of the chart."
+    description = "A SemVer 2 conformant version string of the chart."
 }
