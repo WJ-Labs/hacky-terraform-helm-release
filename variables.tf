@@ -21,18 +21,18 @@ variable "chart_version" {
 }
 
 variable "namespace" {
-  type = string 
+  type        = string
   description = "The namespace to install the release into. Defaults to default."
   default     = null
 }
 
 variable "create_namespace" {
-  type = bool
+  type        = bool
   description = "Create the namespace if it does not yet exist."
   default     = true
 }
 
 variable "values" {
-  type = list(string)
+  type        = list(string)
   description = "List of values in raw yaml to pass to helm. Values will be merged, in order."
 }
