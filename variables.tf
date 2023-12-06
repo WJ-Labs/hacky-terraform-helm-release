@@ -1,21 +1,21 @@
 variable "name" {
-  type = string 
+  type        = string
   description = "Release name."
 }
 
 variable "repository" {
-  type = string
+  type        = string
   description = "Repository URL where to locate the requested chart."
   default     = null
 }
 
 variable "chart" {
-  type = string
+  type        = string
   description = " Chart name to be installed. The chart name can be local path, a URL to a chart, or the name of the chart if repository is specified."
 }
 
 variable "chart_version" {
-  type = string
+  type        = string
   description = "Specify the exact chart version to install. If this is not specified, the latest version is installed."
   default     = null
 }
@@ -27,7 +27,7 @@ variable "namespace" {
 
 variable "create_namespace" {
   description = "Create the namespace if it does not yet exist."
-  default = true
+  default     = true
 }
 
 variable "values" {
