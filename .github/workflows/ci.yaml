@@ -4,6 +4,10 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   terraform_ci:
     runs-on: ubuntu-latest
@@ -22,9 +26,9 @@ jobs:
       id: terraform_init
       run: terraform init
 
-    - name: Terraform fmt -diff -check
+    - name: Terraform fmt
       id: terraform_fmt
-      run: terraform fmt 
+      run: terraform fmt -diff -check
 
     - name: Terraform validate
       id: terraform_validate
