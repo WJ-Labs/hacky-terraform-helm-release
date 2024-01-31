@@ -36,3 +36,8 @@ variable "values" {
   type        = list(string)
   description = "List of values in raw yaml to pass to helm. Values will be merged, in order."
 }
+
+variable "override_config" {
+ type = map(string)
+ default = null
+}
