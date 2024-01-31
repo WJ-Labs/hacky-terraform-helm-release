@@ -37,13 +37,13 @@ variable "values" {
 variable "override_set_config" {
   type        = map(string)
   description = "Value block with custom values to be merged with the values yaml."
-  default     = null
+  default     = {}
 }
 
 variable "override_set_sensitive_config" {
   type        = map(string)
   description = "Value block with custom sensitive values to be merged with the values yaml that won't be exposed in the plan's diff."
-  default     = null
+  default     = {}
 }
 
 variable "timeout" {
