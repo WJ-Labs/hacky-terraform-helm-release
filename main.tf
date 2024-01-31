@@ -13,10 +13,18 @@ resource "helm_release" "this" {
   timeout = var.timeout
 
   dynamic "set" {
-    for_each = var.override_config
+    for_each = var.override_set_config
     content {
-      name = set.key
+      name  = set.key
       value = set.value
+    }
+  }
+
+  dynamic "set_sensitive" {
+    for_each = var.override_set_sensitive_config
+    content {
+      name  = set_sensitive.key
+      value = set_sensitive.value
     }
   }
 }
