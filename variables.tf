@@ -41,3 +41,7 @@ variable "override_config" {
  type = map(string)
  default = null
 }
+
+variable "timeout" {
+  default = 300
+}
