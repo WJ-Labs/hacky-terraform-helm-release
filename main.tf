@@ -10,6 +10,8 @@ resource "helm_release" "this" {
 
   values = var.values
 
+  timeout = var.timeout
+
   dynamic "set" {
     for_each = var.override_config
     content {
