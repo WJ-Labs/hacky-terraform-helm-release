@@ -9,4 +9,12 @@ resource "helm_release" "this" {
   create_namespace = var.create_namespace
 
   values = var.values
+
+  dynamic "set" {
+    for_each = var.override_config
+    content {
+      name = set.key
+      value = set.value
+    }
+  }
 }
