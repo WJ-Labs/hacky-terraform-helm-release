@@ -11,7 +11,7 @@ variable "repository" {
 
 variable "chart" {
   type        = string
-  description = "Chart name to be installed. The chart name can be local path, a URL to a chart, or the name of the chart if repository is specified."
+  description = " Chart name to be installed. The chart name can be local path, a URL to a chart, or the name of the chart if repository is specified."
 }
 
 variable "chart_version" {
@@ -21,27 +21,33 @@ variable "chart_version" {
 }
 
 variable "namespace" {
-  type        = string
   description = "The namespace to install the release into. Defaults to default."
   default     = null
 }
 
 variable "create_namespace" {
-  type        = bool
   description = "Create the namespace if it does not yet exist."
   default     = true
 }
 
 variable "values" {
-  type        = list(string)
-  description = "List of values in raw yaml to pass to helm. Values will be merged, in order."
+  description = "List of values in raw yaml to pass to helm."
 }
 
-variable "override_config" {
- type = map(string)
- default = null
+variable "override_set_config" {
+  type        = map(string)
+  description = "Value block with custom values to be merged with the values yaml."
+  default     = null
+}
+
+variable "override_set_sensitive_config" {
+  type        = map(string)
+  description = "Value block with custom sensitive values to be merged with the values yaml that won't be exposed in the plan's diff."
+  default     = null
 }
 
 variable "timeout" {
-  default = 300
+  type        = number
+  description = "Time in seconds to wait for any individual kubernetes operation (like Jobs for hooks)."
+  default     = 300
 }
